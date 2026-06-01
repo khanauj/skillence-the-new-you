@@ -13,6 +13,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  # Backend API base (public URL, baked in at build time). Update if the Render URL changes.
+  NEXT_PUBLIC_API_URL = "https://skillence-the-new-you.onrender.com"
 
 # Adds the Next.js runtime (SSR, image optimization, route handlers).
 [[plugins]]
