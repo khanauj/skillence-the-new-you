@@ -28,6 +28,17 @@ git push -u origin main
 
 ## 1. Backend on Render
 
+For Supabase on Render, set `DATABASE_URL` to the Supabase **Session pooler**
+connection string, not the direct `db.<project-ref>.supabase.co:5432` database
+host. The direct Supabase host can resolve to IPv6 and fail on Render with
+`Network is unreachable`.
+
+Use this shape:
+
+```bash
+postgresql+psycopg2://postgres.<project-ref>:<password>@aws-0-<region>.pooler.supabase.com:5432/postgres?sslmode=require
+```
+
 1. Render Dashboard → **New → Blueprint** → connect your GitHub repo.
 2. Render reads `render.yaml` and proposes the **skillence-api** web service. Apply it.
 3. Set these environment variables on the service (Dashboard → Environment):

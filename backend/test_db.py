@@ -10,7 +10,7 @@ if not DB_URL:
     sys.exit(1)
 
 try:
-    print("Connecting to Supabase...")
+    print("Connecting to database...")
     conn = psycopg2.connect(DB_URL, connect_timeout=15)
     cur = conn.cursor()
     print("Connected OK!")
